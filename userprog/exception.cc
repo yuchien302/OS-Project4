@@ -57,15 +57,17 @@ ExceptionHandler(ExceptionType which)
     DEBUG(dbgSys, "Received Exception " << which << " type: " << type << "\n");
 
     switch (which) {
-    case SyscallException:
-      switch(type) {
 
-      case SC_PageFaultException:
-      	cerr << "ya~ I'm a PageFaultException" << endl;
+    case PageFaultException:
+	cerr << "ya~ I'm a PageFaultException" << endl;
 	SysHalt();
 
 	ASSERTNOTREACHED();
 	break;
+
+
+    case SyscallException:
+      switch(type) {
 
 
       case SC_Halt:
