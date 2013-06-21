@@ -60,7 +60,7 @@ ExceptionHandler(ExceptionType which)
 
     case PageFaultException:
 	cerr << "[case PageFaultException]" << endl;
-	SysHalt();
+	// SysHalt();
 	SysPageFaultException();
 	return;
 	ASSERTNOTREACHED();
