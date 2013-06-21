@@ -59,9 +59,9 @@ ExceptionHandler(ExceptionType which)
     switch (which) {
 
     case PageFaultException:
-	cerr << "ya~ I'm a PageFaultException" << endl;
-	SysHalt();
-
+	cerr << "[case PageFaultException]" << endl;
+	SysPageFaultException();
+	return;
 	ASSERTNOTREACHED();
 	break;
 

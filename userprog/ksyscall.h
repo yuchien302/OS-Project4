@@ -16,6 +16,11 @@
 #include "string"
 
 
+void SysPageFaultException(){
+  kernel->stats->numPageFaults++;
+  kernel->machine->SwapInOnePage(registers[BadVAddrReg]);
+}
+
 void SysHalt()
 {
   kernel->interrupt->Halt();

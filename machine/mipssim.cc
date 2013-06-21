@@ -71,6 +71,12 @@ Machine::Run()
     }
 }
 
+void 
+Machine::SwapInOnePage(int addr){
+	cerr << "[Machine::SwapInOnePage]: " << addr << endl;
+	
+}
+
 
 //----------------------------------------------------------------------
 // TypeToReg

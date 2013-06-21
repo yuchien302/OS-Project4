@@ -99,6 +99,7 @@ class Machine {
 
 // Routines callable by the Nachos kernel
     void Run();	 		// Run a user program
+    void SwapInOnePage(int addr);
 
     int ReadRegister(int num);	// read the contents of a CPU register
 
