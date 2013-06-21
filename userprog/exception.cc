@@ -60,7 +60,7 @@ ExceptionHandler(ExceptionType which)
     case SyscallException:
       switch(type) {
 
-      case PageFaultException:
+      case SC_PageFaultException:
       	cerr << "ya~ I'm a PageFaultException" << endl;
 	SysHalt();
 
