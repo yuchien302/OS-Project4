@@ -59,6 +59,15 @@ ExceptionHandler(ExceptionType which)
     switch (which) {
     case SyscallException:
       switch(type) {
+
+      case PageFaultException:
+      	cerr << "ya~ I'm a PageFaultException" << endl;
+	SysHalt();
+
+	ASSERTNOTREACHED();
+	break;
+
+
       case SC_Halt:
 	DEBUG(dbgSys, "Shutdown, initiated by user program.\n");
 
