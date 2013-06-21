@@ -18,7 +18,7 @@
 
 void SysPageFaultException(){
   kernel->stats->numPageFaults++;
-  kernel->machine->SwapInOnePage(registers[BadVAddrReg]);
+  kernel->machine->SwapInOnePage(kernel->machine->ReadRegister(BadVAddrReg));
 }
 
 void SysHalt()
