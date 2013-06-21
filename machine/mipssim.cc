@@ -76,7 +76,7 @@ Machine::SwapInOnePage(int addr){
 	cerr << "[Machine::SwapInOnePage]: " << addr << endl;
 	int mainMemortOffset = kernel->stats->numUsedSwapPage * PageSize;
 	int swapMemoryOffset = pageTable[addr/PageSize].physicalPage * PageSize;
-	memcpy(mainMemory+mainMemortOffset, swapMemory+swapMemoryOffset, PageSize)
+	memcpy(mainMemory+mainMemortOffset, swapMemory+swapMemoryOffset, PageSize);
 	pageTable[addr/PageSize].physicalPage = kernel->stats->numUsedSwapPage;
 	pageTable[addr/PageSize].valid = TRUE;
 
