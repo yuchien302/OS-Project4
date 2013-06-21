@@ -59,7 +59,7 @@ ExceptionHandler(ExceptionType which)
     switch (which) {
 
     case PageFaultException:
-	cerr << "[case PageFaultException]" << endl;
+
 	// SysHalt();
 	SysPageFaultException();
 	return;
