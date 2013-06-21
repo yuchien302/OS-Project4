@@ -23,6 +23,8 @@ Statistics::Statistics()
     numConsoleCharsRead = numConsoleCharsWritten = 0;
     numPageFaults = numPacketsSent = numPacketsRecvd = 0;
     numUsedPage = 0;
+    numUsedSwapPage = 0;
+    
 }
 
 //----------------------------------------------------------------------

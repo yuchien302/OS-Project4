@@ -70,7 +70,7 @@ AddrSpace::AddrSpace()
     pageTable = new TranslationEntry[NumPhysPages];
     for (int i = 0; i < NumPhysPages; i++) {
 	pageTable[i].virtualPage = i;	// for now, virt page # = phys page #
-	pageTable[i].physicalPage = i+kernel->stats->numUsedPage;
+	pageTable[i].physicalPage = i+kernel->stats->numUsedSwapPage;
 	pageTable[i].valid = FALSE;
 	pageTable[i].use = FALSE;
 	pageTable[i].dirty = FALSE;
@@ -144,7 +144,7 @@ AddrSpace::Load(char *fileName)
 
 // then, copy in the code and data segments into memory
 // Note: this code assumes that virtual address = physical address
-    int pageOffset = kernel->stats->numUsedPage * PageSize;
+    int pageOffset = kernel->stats->numUsedSwapPage * PageSize;
     if (noffH.code.size > 0) {
         DEBUG(dbgAddr, "Initializing code segment.");
 	DEBUG(dbgAddr, noffH.code.virtualAddr << ", " << noffH.code.size);
@@ -183,7 +183,7 @@ AddrSpace::Load(char *fileName)
     cout << "Virtual address of read-only data segment: " << noffH.readonlyData.virtualAddr << endl;
 
 
-        kernel->stats->numUsedPage+=numPages;
+    kernel->stats->numUsedSwapPage+=numPages;
     delete executable;			// close file
     return TRUE;			// success
 }
